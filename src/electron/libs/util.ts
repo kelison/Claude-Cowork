@@ -1,6 +1,8 @@
 import { getCurrentApiConfig, buildEnvForConfig } from "./claude-settings.js";
 import { unstable_v2_prompt } from "@anthropic-ai/claude-agent-sdk";
 import type { SDKResultMessage } from "@anthropic-ai/claude-agent-sdk";
+import { claudeCodeEnv } from "./claude-settings.js";
+
 import { app } from "electron";
 import { join } from "path";
 import { homedir } from "os";
