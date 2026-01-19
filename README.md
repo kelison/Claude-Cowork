@@ -65,36 +65,26 @@ That means:
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and authenticated
 
 bash
-# Clone the repository
+#### Clone the repository
 git clone https://github.com/DevAgentForge/agent-cowork.git
 cd agent-cowork
 
-# Install dependencies
+#### Install dependencies
 bun install
 
-# Run in development mode
+#### Run in development mode
 bun run dev
 
-# Or build production binaries
+#### Or build production binaries
+
+```bash
 bun run dist:mac-arm64    # macOS Apple Silicon (M1/M2/M3)
 bun run dist:mac-x64      # macOS Intel
 bun run dist:win          # Windows
 bun run dist:linux        # Linux
-`
+```
+
 ---
-
-## 🧠 Core Capabilities
-
-### 🤖 AI Collaboration Partner — Not Just a GUI
-
-Agent Cowork is your AI partner that can:
-
-* **Write and edit code** — in any programming language
-* **Manage files** — create, move, and organize
-* **Run commands** — build, test, deploy
-* **Answer questions** — about your codebase
-* **Do anything** — as long as you can describe it in natural language
-
 
 ## Example
 An example of organizing a local folder:
@@ -105,12 +95,11 @@ https://github.com/user-attachments/assets/8ce58c8b-4024-4c01-82ee-f8d8ed6d4bba
 ## 🛠 Development
 
 bash
-# Start development server (hot reload)
+#### Start development server (hot reload)
 bun run dev
 
-# Type checking / build
+#### Type checking / build
 bun run build
-
 
 ---
 
