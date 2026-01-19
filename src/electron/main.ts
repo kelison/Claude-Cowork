@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, dialog, globalShortcut } from "electron"
+import { app, BrowserWindow, ipcMain, dialog, globalShortcut, Menu } from "electron"
 import { execSync } from "child_process";
 import { ipcMainHandle, isDev, DEV_PORT } from "./util.js";
 import { getPreloadPath, getUIPath, getIconPath } from "./pathResolver.js";
@@ -43,6 +43,7 @@ function handleSignal(): void {
 
 // Initialize everything when app is ready
 app.on("ready", () => {
+    Menu.setApplicationMenu(null);
     // Setup event handlers
     app.on("before-quit", cleanup);
     app.on("will-quit", cleanup);

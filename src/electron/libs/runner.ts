@@ -3,7 +3,7 @@ import type { ServerEvent } from "../types.js";
 import type { Session } from "./session-store.js";
 
 import { getCurrentApiConfig, buildEnvForConfig, getClaudeCodePath} from "./claude-settings.js";
-import { enhancedEnv} from "./util.js";
+import { getEnhancedEnv } from "./util.js";
 
 
 export type RunnerOptions = {
@@ -56,7 +56,7 @@ export async function runClaude(options: RunnerOptions): Promise<RunnerHandle> {
       // 使用 Anthropic SDK
       const env = buildEnvForConfig(config);
       const mergedEnv = {
-        ...enhancedEnv,
+        ...getEnhancedEnv(),
         ...env
       };
       

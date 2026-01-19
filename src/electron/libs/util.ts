@@ -20,13 +20,13 @@ export function getEnhancedEnv(): Record<string, string | undefined> {
   };
 }
 
-export const enhancedEnv = getEnhancedEnv();
-
 export const generateSessionTitle = async (userIntent: string | null) => {
   if (!userIntent) return "New Session";
 
   // Get the Claude Code path when needed, not at module load time
   const claudeCodePath = getClaudeCodePath();
+  // Get fresh env each time to ensure latest API config is used
+  const currentEnv = getEnhancedEnv();
 
   try {
     const result: SDKResultMessage = await unstable_v2_prompt(
@@ -34,7 +34,7 @@ export const generateSessionTitle = async (userIntent: string | null) => {
       ${userIntent}
       directly output the title, do not include any other content`, {
       model: getCurrentApiConfig()?.model || "claude-sonnet",
-      env: enhancedEnv,
+      env: currentEnv,
       pathToClaudeCodeExecutable: claudeCodePath,
     });
 
